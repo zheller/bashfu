@@ -7,3 +7,6 @@ find / 2>/dev/null -size +100000k -print0 | xargs -0 ls -lh
 # Find processes that are listening to ports on my OSX
 # So I can kill them with a vengence cuz they are assholes
 lsof -i | grep LISTEN
+
+# ack find and replace
+ack -l --print0 --text log | xargs -0 -n 1 sed -i -e 's/log/debug/g'
